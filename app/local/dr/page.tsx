@@ -108,6 +108,14 @@ export default function BelgaumPage() {
             <p className="text-base md:text-lg text-foreground/80">
               Higher OLR values align with heated, dry regions — evidence of strong energy emission. This differential heating drives monsoon circulation and is crucial for tracking climate shifts.
             </p>
+
+             <h4 className="text-2xl font-semibold text-[#0A2342] mb-3">3. Outgoing Longwave Radiation (OLR)</h4>
+            <p className="text-base md:text-lg text-foreground/80">
+               <h4 className="text-2xl font-semibold text-[#0A2342] mb-3">4. Longitudinal Analysis of Drought Indicators (2000-2025) (OLR)</h4>
+            <p className="text-base md:text-lg text-foreground/80">
+              A time-series analysis of the satellite data from 2000 to 2025 is projected to reveal critical environmental trends indicating escalating drought stress. Key indicators include: Expansion of High-Temperature Zones: A progressive increase in the spatial extent of high LST values (thermal stress indicators) encroaching upon the Belagavi region from the adjacent plains. Degradation of Vegetation Health: A measurable decline in NDVI values within the region over time, signifying a reduction in vegetation density and health. This trend would be particularly pronounced during periods of documented dry spells or meteorological drought. Anomalies in Regional Energy Balance: Observable shifts in the Outgoing Longwave Radiation (OLR) patterns, which can be correlated with meteorological data to identify changes in atmospheric conditions affecting monsoon intensity and consistency.
+            </p>
+            </p>
           </div>
 
           {/* 🌾 Section 3: Environmental Stress Analysis */}
@@ -128,10 +136,12 @@ export default function BelgaumPage() {
               <li>Shifts in OLR patterns correlating with weakened monsoon systems.</li>
             </ul>
 
-            <h4 className="text-2xl font-semibold text-[#0A2342] mb-3">3.3 Ground-Level Impacts</h4>
+            <h4 className="text-2xl font-semibold text-[#0A2342] mb-3">3.3 Correlation with Ground-Level Impacts</h4>
             <p className="text-base md:text-lg text-foreground/80">
-              Local agricultural reports of drying wells and erratic rainfall align with satellite-based drought evidence. Belagavi’s experiences echo a larger trend of rising water and thermal stress across India’s semi-arid belt.
+             This remote sensing data serves to scientifically validate local, ground-level observations reported by agricultural communities. Anecdotal evidence from farmers in Belagavi regarding increased water scarcity, drying wells, and erratic rainfall patterns can be contextualized and substantiated by these macro-level datasets. The satellite imagery provides a regional and climatic framework, demonstrating that local struggles are consistent with a larger, measurable trend of increasing water and thermal stress across the subcontinent.
             </p>
+
+            
           </div>
 
           {/* 🎥 Gallery Section */}
