@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Earth with Satellites</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+  // Scene setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // Earth
+  const textureLoader = new THREE.TextureLoader();
+  const earthTexture = textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg');
+  const earth = new THREE.Mesh(
+    new THREE.SphereGeometry(2, 64, 64),
+    new THREE.MeshPhongMaterial({ map: earthTexture })
+  );
+  scene.add(earth);
+
+  // Lighting
+  const light = new THREE.PointLight(0xffffff, 1.5);
+  light.position.set(5, 3, 5);
+  scene.add(light);
+
+  // Satellite
+  const satellite = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 16, 16),
+    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+  );
+  scene.add(satellite);
+
+  // Orbit variables
+  let angle = 0;
+  const radius = 4;
+
+  // Raycaster for clicks
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+
+  function onClick(event) {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects([satellite]);
+    if (intersects.length > 0) {
+      window.location.href = "newpage.html"; // open new page
+    }
+  }
+  window.addEventListener('click', onClick);
+
+  camera.position.z = 6;
+
+  // Animation loop
+  function animate() {
+    requestAnimationFrame(animate);
+
+    earth.rotation.y += 0.002;
+
+    // Satellite orbit
+    angle += 0.001;
+    satellite.position.x = radius * Math.cos(angle);
+    satellite.position.z = radius * Math.sin(angle);
+
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
+</body>
+</html>

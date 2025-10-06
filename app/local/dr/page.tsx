@@ -18,13 +18,13 @@ export default function BelgaumPage() {
     <div className="min-h-screen bg-background">
       <ThemeToggle />
 
-      {/* Hero Section */}
+     {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0A2342] to-[#0A2342]/90 dark:from-[#0A2342] dark:to-[#0A2342]/80">
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <Link href="/case-studies" className="inline-block mb-6">
             <Button variant="ghost" className="text-white hover:bg-white/20">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back 
+              Back
             </Button>
           </Link>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6">
@@ -44,32 +44,36 @@ export default function BelgaumPage() {
           </Button>
         </div>
       </section>
-      {/* Image Slider */}
-          <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#2CA58D] mb-6">
-              Animations (2004–2024)
-            </h3>
-            <img
-              src={images[currentImage].src}
-              alt={images[currentImage].label}
-              className="w-full max-w-3xl mx-auto rounded-xl shadow-lg mb-4"
-            />
-            <input
-              type="range"
-              min="0"
-              max={images.length - 1}
-              value={currentImage}
-              onChange={(e) => setCurrentImage(Number(e.target.value))}
-              className="w-full max-w-2xl mx-auto"
-            />
-            <p className="mt-2 text-lg font-semibold text-foreground/80">
-              Instrument: {images[currentImage].label}
-            </p>
-            <h1 className="text-1xl md:text-1xl font-bold mb-6">
-              click on the slider or use right and left arrow keys for different instruments
-            </h1>
 
-          </div>
+      {/* Image Slider Section */}
+      <section id="animation-section" className="py-16 bg-background text-center">
+        <h3 className="text-2xl md:text-3xl font-bold text-[#2CA58D] mb-6">
+          Animations (2004–2024)
+        </h3>
+
+        <img
+          src={images[currentImage].src}
+          alt={images[currentImage].label}
+          className="w-full max-w-3xl mx-auto rounded-xl shadow-lg mb-4"
+        />
+
+        <input
+          type="range"
+          min="0"
+          max={images.length - 1}
+          value={currentImage}
+          onChange={(e) => setCurrentImage(Number(e.target.value))}
+          className="w-full max-w-2xl mx-auto"
+        />
+
+        <p className="mt-2 text-lg font-semibold text-foreground/80">
+          Instrument: {images[currentImage].label}
+        </p>
+        <h1 className="text-1xl md:text-1xl font-bold mb-6">
+          Click on the slider or use right and left arrow keys for different instruments
+        </h1>
+      </section>
+
 
       {/* Local Temperature & Observations */}
       <section className="py-16 md:py-20 px-4 bg-background">
